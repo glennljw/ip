@@ -27,9 +27,7 @@ public class Duke {
      */
     public String handleInput(String input) {
         Command c = Parser.parse(input);
-        if (c == null) {
-            return "This command is invalid";
-        }
+        assert c != null : "Command should not be null.";
         String output = "\n" + c.execute(this.taskList, this.save);
         return output;
     }
